@@ -5,6 +5,7 @@ import os
 app = Flask(__name__)
 app.secret_key = os.urandom(50)
 
+
 @app.route('/')
 def index():
     return render_template("index.html")
