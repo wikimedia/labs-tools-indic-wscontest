@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>Indic Wikisource Contest Tool</title>
+        <link rel="stylesheet"
+              href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    {% endblock head %}
+</head>
+<body>
+    <div class="container">
+        <br>
+        {% block main %}
+        {% endblock main %}
+
+        <footer class="footer fixed-bottom">
+            <p class="container text-center"><small>Created and maintained by
+                <a href="https://meta.wikimedia.org/wiki/User:Jayprakash12345">Jayprakash</a>,
+                <a href="https://meta.wikimedia.org/wiki/Indic-TechCom">Indic-TechCom</a> (
+                <a href="https://gerrit.wikimedia.org/g/labs/tools/indic-wscontest">View Source</a> )
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
