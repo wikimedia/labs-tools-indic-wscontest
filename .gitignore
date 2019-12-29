@@ -2,3 +2,4 @@ venv
 .vscode
 .idea
 .tox
+__pycache__/
