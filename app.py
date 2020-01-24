@@ -3,13 +3,13 @@ from flask import Flask, request, redirect, render_template, \
 import os
 import json
 import mwoauth
-import datetime
+from datetime import datetime
 
 # Create the app
 app = Flask(__name__)
 
 # Load configuration
-# export APP_SETTINGS = "config.production" for Production
+# export APP_SETTINGS=config.production for Production
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.secret_key = os.urandom(50)
 
@@ -46,12 +46,12 @@ def create_contest():
         con["project"] = req["c_project"]
         con["start_date"] = req["start_date"]
         con["end_date"] = req["end_date"]
-        con["createdon"] = datetime.datetime.utcnow().strftime("%d-%m-%Y, %H:%M")
+        con["createdon"] = datetime.utcnow().strftime("%d-%m-%Y, %H:%M")
         con["createdby"] = get_current_user()
 
         # Split into list
-        con["admin"] = req.get("index_pages").split('\r\n')
-        con["index"] = req.get("c_admin").split('\r\n')
+        con["index"] = req.get("index_pages").split('\r\n')
+        con["admin"] = req.get("c_admin").split('\r\n')
 
         with open("contest_data/contests.json", encoding="utf8") as file:
             contest = json.load(file)
@@ -96,16 +96,30 @@ def contest_by_id(id):
             for page in stats[indexPage]:
                 if stats[indexPage][page]["proofread"] is not None:
                     user = stats[indexPage][page]["proofread"]["user"]
-                    if user not in proofread:
+                    timestamp = stats[indexPage][page]["proofread"]["timestamp"]
+
+                    # Create Date Object for easy comparison
+                    d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
+                    d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
+                    d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
+
+                    if user not in proofread and (d1_obj < d3_obj < d2_obj):
                         proofread[user] = [page]
-                    else:
+                    elif (d1_obj < d3_obj < d2_obj):
                         proofread[user].append(page)
 
                 if stats[indexPage][page]["validate"] is not None:
                     user = stats[indexPage][page]["validate"]["user"]
-                    if user not in validate:
+                    timestamp = stats[indexPage][page]["proofread"]["timestamp"]
+
+                    # Create Date Object for easy comparison
+                    d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
+                    d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
+                    d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
+
+                    if user not in validate and (d1_obj < d3_obj < d2_obj):
                         validate[user] = [page]
-                    else:
+                    elif (d1_obj < d3_obj < d2_obj):
                         validate[user].append(page)
     except KeyError:
         pass

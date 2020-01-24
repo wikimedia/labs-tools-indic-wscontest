@@ -29,7 +29,9 @@
     <ul>
         {% for u in data["admin"] %}
             <li>
-                {{ u }}
+                <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{ u }}">
+                    {{ u }}
+                </a>
             </li>
         {% endfor %}
     </ul>
@@ -39,7 +41,9 @@
     <ul>
         {% for u in data["index"] %}
             <li>
-                {{ u }}
+                <a href="https://{{data["project"]}}.wikisource.org/wiki/{{ u }}">
+                    {{ u }}
+                </a>
             </li>
         {% endfor %}
     </ul>
@@ -50,15 +54,22 @@
     <table class="table table-hover table-bordered">
         <tr>
             <th>User</th>
-            <th>Page</th>
-            <th>No of Page</th>
+            <th>Pages</th>
+            <th>No of Pages</th>
         </tr>
         {% for users in proofread %}
         <tr>
-            <td>{{ users }}</td>
+            <td>
+                <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{users}}">
+                    {{users}}
+                </a>
+            </td>
             <td>
                 {% for page in proofread[users] %}
-                    {{page}}<br>
+                    <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
+                        {{page}}
+                    </a>
+                    <br>
                 {% endfor %}
             </td>
             <td>{{ proofread[users]|length }}</td>
@@ -72,15 +83,22 @@
     <table class="table table-hover table-bordered">
         <tr>
             <th>User</th>
-            <th>Page</th>
-            <th>No of Page</th>
+            <th>Pages</th>
+            <th>No of Pages</th>
         </tr>
         {% for users in validate %}
         <tr>
-            <td>{{ users }}</td>
+            <td>
+                <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{users}}">
+                    {{users}}
+                </a>
+            </td>
             <td>
                 {% for page in validate[users] %}
-                    {{page}}<br>
+                    <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
+                        {{page}}
+                    </a>
+                    <br>
                 {% endfor %}
             </td>
             <td>{{ validate[users]|length }}</td>
