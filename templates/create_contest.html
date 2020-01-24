@@ -1,6 +1,94 @@
 {% extends "base.html" %}
 
+{% block head %}
+    {{ super() }}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Bootstrap, jQuery and others JS -->
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+
+    <link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="//tools-static.wmflabs.org/cdnjs/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#start_date').datetimepicker({
+                format: "DD-MM-YYYY HH:mm"
+            });
+            $('#end_date').datetimepicker({
+                format: "DD-MM-YYYY HH:mm"
+            });
+        });
+    </script>
+    <style>
+        .span-help {
+            color: #737373;
+        }
+    </style>
+{% endblock head %}
+
 {% block main %}
     <h2>Create Contest</h2>
+    <hr>
+    {% if logged %}
+        <form action="{{ url_for('create_contest') }}" method="POST">
+            <div class="form-group">
+                <label for="c_name">Contest Name</label>
+                <input class="form-control" name="c_name" type="text" minlength="4" maxlength="80" required>
+            </div>
+            <div class="form-group">
+                <label for="c_project">Wikisource project:</label>
+                <select class="form-control" id="project" name="c_project">
+                    <option value="as">Assamese</option>
+                    <option value="bn">Bangla</option>
+                    <option value="gu">Gujarati</option>
+                    <option value="hi">Hindi</option>
+                    <option value="kn">Kannada</option>
+                    <option value="ml">Malayalam</option>
+                    <option value="mr">Marathi</option>
+                    <option value="or">Oriya</option>
+                    <option value="pa">Punjabi</option>
+                    <option value="sa">Sanskrit</option>
+                    <option value="ta">Tamil</option>
+                    <option value="te">Telugu</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6" style="position: relative">
+                    <label for="start_date">Start Date:</label>
+                    <input class="form-control" id="start_date" name="start_date" type="text">
+                    <p class="span-help">Times are in UTC timezone.</p>
+                </div>
+
+                <div class="form-group col-sm-6" style="position: relative">
+                    <label for="end_date">End Date:</label>
+                    <input class="form-control" id="end_date" name="end_date" type="text">
+                    <p class="span-help">Times are in UTC timezone.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                  <label for="index_pages">Index Pages:</label>
+                  <textarea class="form-control" rows="10" id="index_pages" name="index_pages"></textarea>
+                  <p class="span-help">One Index Page per line.</p>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="c_admin">Admins:</label>
+                  <textarea class="form-control" rows="10" id="c_admin" name="c_admin">{{ username }}</textarea><p class="span-help">One wiki username per line.</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+        <br>
+        <br>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Anonymous user is not allowed to create contest. Please <a href="{{ url_for('login') }}" class="alert-link">login</a> first!
+        </div>
+    {% endif %}
 
 {% endblock %}

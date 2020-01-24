@@ -1,7 +1,9 @@
 from flask import Flask, request, redirect, render_template, \
-    session, url_for
+    session, url_for, abort
 import os
+import json
 import mwoauth
+import datetime
 
 # Create the app
 app = Flask(__name__)
@@ -25,17 +27,91 @@ def index():
 
 @app.route('/contest/', methods=["GET"])
 def contest():
-    return render_template("contests.html")
+    with open("contest_data/contests.json", encoding="utf8") as file:
+        contest = json.load(file)
+    return render_template("contests.html", data=contest)
 
 
 @app.route('/contest/create', methods=["GET", "POST"])
 def create_contest():
-    return render_template("create_contest.html")
+    if request.method == "GET":
+        return render_template("create_contest.html")
+
+    elif request.method == "POST" and get_current_user() is not None:
+        con = {}
+        number_of_con = 0
+        req = request.form
+
+        con["name"] = req["c_name"]
+        con["project"] = req["c_project"]
+        con["start_date"] = req["start_date"]
+        con["end_date"] = req["end_date"]
+        con["createdon"] = datetime.datetime.utcnow().strftime("%d-%m-%Y, %H:%M")
+        con["createdby"] = get_current_user()
+
+        # Split into list
+        con["admin"] = req.get("index_pages").split('\r\n')
+        con["index"] = req.get("c_admin").split('\r\n')
+
+        with open("contest_data/contests.json", encoding="utf8") as file:
+            contest = json.load(file)
+            number_of_con = int(contest["number_of_con"]) + 1
+
+        # Increament number_of_con and create key
+        contest["number_of_con"] = number_of_con
+        contest[number_of_con] = {}
+        contest[number_of_con] = con
+
+        # Rewrite contests.json with new contest
+        with open("contest_data/contests.json", 'w', encoding="utf8") as file:
+            json.dump(contest, file, indent=4, ensure_ascii=False)
+
+        # Create empty JSON for stats of contest
+        c_no = str(number_of_con)
+        with open("contest_data/stats/" + c_no + ".json", 'w', encoding="utf8") as file:
+            json.dump({}, file, indent=4, ensure_ascii=False)
+
+        return redirect(url_for('contest'))
 
 
 @app.route('/contest/<int:id>', methods=["GET"])
 def contest_by_id(id):
-    return render_template("contest.html")
+    with open("contest_data/contests.json", encoding="utf8") as file:
+        contest = json.load(file)
+
+    contest = contest.get(str(id))
+
+    # Check whether contest is exist or not
+    if contest is None:
+        abort(404)
+
+    proofread = {}
+    validate = {}
+
+    try:
+        with open("contest_data/stats/"+str(id)+".json", encoding="utf8") as file:
+            stats = json.load(file)
+
+        for indexPage in stats:
+            for page in stats[indexPage]:
+                if stats[indexPage][page]["proofread"] is not None:
+                    user = stats[indexPage][page]["proofread"]["user"]
+                    if user not in proofread:
+                        proofread[user] = [page]
+                    else:
+                        proofread[user].append(page)
+
+                if stats[indexPage][page]["validate"] is not None:
+                    user = stats[indexPage][page]["validate"]["user"]
+                    if user not in validate:
+                        validate[user] = [page]
+                    else:
+                        validate[user].append(page)
+    except KeyError:
+        pass
+
+    return render_template(
+        "contest.html", data=contest, proofread=proofread, validate=validate)
 
 
 @app.route('/contest/<int:id>/edit', methods=["GET", "POST"])

@@ -1,6 +1,91 @@
 {% extends "base.html" %}
 
 {% block main %}
-    <h2>Contest Info</h2>
+    <h1>Contest Info</h1>
+    <hr>
+    <ul>
+        <li>
+            Name: {{ data["name"] }}
+        </li>
+        <li>
+            Project: {{ data["project"] }}
+        </li>
+        <li>
+            Started from: {{ data["start_date"] }}
+        </li>
+        <li>
+            End on: {{ data["end_date"] }}
+        </li>
+        <li>
+            Created by: {{ data["createdby"] }}
+        </li>
+        <li>
+            Created on: {{ data["createdon"] }} UTC
+        </li>
+
+    </ul>
+    <h2>Administrators</h2>
+    <hr>
+    <ul>
+        {% for u in data["admin"] %}
+            <li>
+                {{ u }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Index Page</h2>
+    <hr>
+    <ul>
+        {% for u in data["index"] %}
+            <li>
+                {{ u }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Scores</h2>
+    <h5>Proofread</h5>
+    <hr>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>User</th>
+            <th>Page</th>
+            <th>No of Page</th>
+        </tr>
+        {% for users in proofread %}
+        <tr>
+            <td>{{ users }}</td>
+            <td>
+                {% for page in proofread[users] %}
+                    {{page}}<br>
+                {% endfor %}
+            </td>
+            <td>{{ proofread[users]|length }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <h5>Validate</h5>
+    <hr>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>User</th>
+            <th>Page</th>
+            <th>No of Page</th>
+        </tr>
+        {% for users in validate %}
+        <tr>
+            <td>{{ users }}</td>
+            <td>
+                {% for page in validate[users] %}
+                    {{page}}<br>
+                {% endfor %}
+            </td>
+            <td>{{ validate[users]|length }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}
