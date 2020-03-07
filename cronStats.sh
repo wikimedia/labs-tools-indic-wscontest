@@ -1,3 +1,4 @@
 #!/bin/sh
 source ~/crontab/venv/bin/activate
-python ~/www/python/src/stats.py
+cd ~/www/python/src
+python3 ~/www/python/src/stats.py

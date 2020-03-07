@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 
+{% block head %}
+    {{ super() }}
+    <script type="text/javascript" src="//tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $( document ).ready( function(){
+            $('.user-pages').on( 'click', function(){
+                $(this).next().toggle();
+            });
+        });
+    </script>
+    <style>
+        .user-pages {
+            text-decoration: underline;
+            color: #007bff;
+            cursor: pointer;
+        }
+    </style>
+{% endblock %}
+
 {% block main %}
     <h1>Contest Info</h1>
     <hr>
@@ -65,12 +84,15 @@
                 </a>
             </td>
             <td>
-                {% for page in proofread[users] %}
-                    <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
-                        {{page}}
-                    </a>
-                    <br>
-                {% endfor %}
+                <p class="user-pages"> Show/Hide Pages </p>
+                <div style="display:none;">
+                    {% for page in proofread[users] %}
+                        <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
+                            {{page}}
+                        </a>
+                        <br>
+                    {% endfor %}
+                </div>
             </td>
             <td>{{ proofread[users]|length }}</td>
         </tr>
@@ -94,12 +116,15 @@
                 </a>
             </td>
             <td>
-                {% for page in validate[users] %}
-                    <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
-                        {{page}}
-                    </a>
-                    <br>
-                {% endfor %}
+                <p class="user-pages"> Show/Hide Pages </p>
+                <div style="display:none;">
+                    {% for page in validate[users] %}
+                        <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
+                            {{page}}
+                        </a>
+                        <br>
+                    {% endfor %}
+                </div>
             </td>
             <td>{{ validate[users]|length }}</td>
         </tr>
