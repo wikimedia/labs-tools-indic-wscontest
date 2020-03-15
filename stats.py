@@ -19,7 +19,7 @@ for k, v in contests.items():
                     con[index][page] = {}
                     con[index][page] = ws.pageStatus(page)
             except Exception:
-                print("Error in %d contest" % k)
+                print("Error in %s contest" % k)
 
         with open("contest_data/stats/" + k + ".json", 'w', encoding="utf8") as file:
             json.dump(con, file, indent=4, ensure_ascii=False)
