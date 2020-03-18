@@ -2,11 +2,21 @@
 
 {% block head %}
     {{ super() }}
-    <script type="text/javascript" src="//tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+              href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css">
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+
     <script>
         $( document ).ready( function(){
             $('.user-pages').on( 'click', function(){
                 $(this).next().toggle();
+            });
+
+            $('.statsTable').DataTable({
+                paging: false,
+                searching: false,
+                lengthChange: false,
+                bInfo : false
             });
         });
     </script>
@@ -70,65 +80,73 @@
     <h2>Scores</h2>
     <h5>Proofread</h5>
     <hr>
-    <table class="table table-hover table-bordered">
-        <tr>
-            <th>User</th>
-            <th>Pages</th>
-            <th>No of Pages</th>
-        </tr>
-        {% for users in proofread %}
-        <tr>
-            <td>
-                <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{users}}">
-                    {{users}}
-                </a>
-            </td>
-            <td>
-                <p class="user-pages"> Show/Hide Pages </p>
-                <div style="display:none;">
-                    {% for page in proofread[users] %}
-                        <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
-                            {{page}}
-                        </a>
-                        <br>
-                    {% endfor %}
-                </div>
-            </td>
-            <td>{{ proofread[users]|length }}</td>
-        </tr>
-        {% endfor %}
+    <table class="statsTable table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Pages</th>
+                <th>No of Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for users in proofread %}
+            <tr>
+                <td>
+                    <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{users}}">
+                        {{users}}
+                    </a>
+                </td>
+                <td>
+                    <p class="user-pages"> Show/Hide Pages </p>
+                    <div style="display:none;">
+                        {% for page in proofread[users] %}
+                            <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
+                                {{page}}
+                            </a>
+                            <br>
+                        {% endfor %}
+                    </div>
+                </td>
+                <td>{{ proofread[users]|length }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
     <br>
     <h5>Validate</h5>
     <hr>
-    <table class="table table-hover table-bordered">
-        <tr>
-            <th>User</th>
-            <th>Pages</th>
-            <th>No of Pages</th>
-        </tr>
-        {% for users in validate %}
-        <tr>
-            <td>
-                <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{users}}">
-                    {{users}}
-                </a>
-            </td>
-            <td>
-                <p class="user-pages"> Show/Hide Pages </p>
-                <div style="display:none;">
-                    {% for page in validate[users] %}
-                        <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
-                            {{page}}
-                        </a>
-                        <br>
-                    {% endfor %}
-                </div>
-            </td>
-            <td>{{ validate[users]|length }}</td>
-        </tr>
-        {% endfor %}
+    <table class="statsTable table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Pages</th>
+                <th>No of Pages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for users in validate %}
+            <tr>
+                <td>
+                    <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{users}}">
+                        {{users}}
+                    </a>
+                </td>
+                <td>
+                    <p class="user-pages"> Show/Hide Pages </p>
+                    <div style="display:none;">
+                        {% for page in validate[users] %}
+                            <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
+                                {{page}}
+                            </a>
+                            <br>
+                        {% endfor %}
+                    </div>
+                </td>
+                <td>{{ validate[users]|length }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
 {% endblock %}
