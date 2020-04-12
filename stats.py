@@ -1,5 +1,6 @@
 from pywikisource import WikiSourceApi
 import json
+import datetime as dt
 
 # Read the contests
 with open("contest_data/contests.json", 'r', encoding="utf-8") as file:
@@ -20,6 +21,7 @@ for k, v in contests.items():
                     con[index][page] = ws.pageStatus(page)
             except Exception:
                 print("Error in %s contest" % k)
+        con["LastUpdate"] = dt.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
 
         with open("contest_data/stats/" + k + ".json", 'w', encoding="utf8") as file:
             json.dump(con, file, indent=4, ensure_ascii=False)

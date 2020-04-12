@@ -87,12 +87,16 @@ def contest_by_id(id):
 
     proofread = {}
     validate = {}
+    lastUpdate = ""
 
     try:
         with open("contest_data/stats/"+str(id)+".json", encoding="utf8") as file:
             stats = json.load(file)
 
         for indexPage in stats:
+            if indexPage == "LastUpdate":
+                lastUpdate = stats["LastUpdate"]
+                continue
             for page in stats[indexPage]:
                 if stats[indexPage][page]["proofread"] is not None:
                     user = stats[indexPage][page]["proofread"]["user"]
@@ -125,7 +129,8 @@ def contest_by_id(id):
         pass
 
     return render_template(
-        "contest.html", data=contest, proofread=proofread, validate=validate)
+        "contest.html", data=contest, proofread=proofread,
+        validate=validate, lastUpdate=lastUpdate)
 
 
 @app.route('/contest/<int:id>/edit', methods=["GET", "POST"])
