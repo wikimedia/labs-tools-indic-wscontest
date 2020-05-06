@@ -135,7 +135,39 @@ def contest_by_id(id):
 
 @app.route('/contest/<int:id>/edit', methods=["GET", "POST"])
 def edit_contest(id):
-    return render_template("edit_contest.html")
+    # Opening the contest
+    with open("contest_data/contests.json", encoding="utf8") as file:
+        contest = json.load(file)
+
+    if request.method == "GET":
+        contest = contest.get(str(id))
+        return render_template("edit_contest.html", data=contest)
+
+    elif request.method == "POST" and get_current_user() is not None:
+        req = request.form
+
+        contest[str(id)]["name"] = req["c_name"]
+        contest[str(id)]["project"] = req["c_project"]
+        contest[str(id)]["start_date"] = req["start_date"]
+        contest[str(id)]["end_date"] = req["end_date"]
+
+        # Split into list
+        contest[str(id)]["index"] = req.get("index_pages").split('\r\n')
+        contest[str(id)]["admin"] = req.get("c_admin").split('\r\n')
+
+        # Rewrite contests.json with edit contest
+        with open("contest_data/contests.json", 'w', encoding="utf8") as file:
+            json.dump(contest, file, indent=4, ensure_ascii=False)
+
+        # Change update status
+        with open("contest_data/stats/"+str(id)+".json", 'r+', encoding="utf8") as file:
+            c_details = json.load(file)
+            c_details["LastUpdate"] = "Contest Updated, Stats will generate soon."
+            file.seek(0)
+            json.dump(c_details, file, indent=4, ensure_ascii=False)
+            file.truncate()
+
+        return redirect(url_for('contest_by_id', id=id))
 
 
 @app.route('/login')
