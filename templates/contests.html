@@ -6,16 +6,31 @@
         <a class="float-right btn btn-info" href="{{ url_for('create_contest') }}"> Create contest</a>
     {% endif %}
     <p>Total Contest:- {{ data["number_of_con"] }} </p>
-    <ul>
-        {% for contest in data %}
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Project</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contest in data|sort(attribute='0') %}
             {% if "number_of_con" is not in contest %}
-                <li>
-                    <a href="{{url_for('contest_by_id', id=contest)}}">
-                        {{data[contest]["name"]}}
-                    </a>
-                </li>
+                <tr>
+                    <th scope="row">
+                        <a href="{{url_for('contest_by_id', id=contest)}}">
+                            {{data[contest]["name"]}}
+                        </a>
+                    </th>
+                    <td>{{data[contest]["project"]}}</td>
+                    <td>{{data[contest]["start_date"]}} UTC</td>
+                    <td>{{data[contest]["end_date"]}} UTC</td>
+                </tr>
             {% endif %}
         {% endfor %}
-    </ul>
+    </tbody>
+    </table>
 
 {% endblock %}
