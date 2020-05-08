@@ -63,7 +63,7 @@
     </ul>
     <h2>Administrators</h2>
     <hr>
-    <ul>
+    <ol>
         {% for u in data["admin"] %}
             <li>
                 <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{ u }}">
@@ -71,11 +71,11 @@
                 </a>
             </li>
         {% endfor %}
-    </ul>
+    </ol>
 
     <h2>Index Page</h2>
     <hr>
-    <ul>
+    <ol>
         {% for u in data["index"] %}
             <li>
                 <a href="https://{{data["project"]}}.wikisource.org/wiki/{{ u }}">
@@ -83,7 +83,7 @@
                 </a>
             </li>
         {% endfor %}
-    </ul>
+    </ol>
 
     <h2>Scores</h2>
     <h5>Proofread</h5>
