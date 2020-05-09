@@ -81,6 +81,9 @@ def contest_by_id(id):
 
     contest = contest.get(str(id))
 
+    # Remove whitespace around the admins
+    contest["admin"] = [i.strip() for i in contest["admin"]]
+
     # Check whether contest is exist or not
     if contest is None:
         abort(404)
@@ -141,6 +144,10 @@ def edit_contest(id):
 
     if request.method == "GET":
         contest = contest.get(str(id))
+
+        # Remove whitespace around the admins
+        contest["admin"] = [i.strip() for i in contest["admin"]]
+
         return render_template("edit_contest.html", data=contest)
 
     elif request.method == "POST" and get_current_user() is not None:
