@@ -131,9 +131,36 @@ def contest_by_id(id):
     except KeyError:
         pass
 
+    # Create empty dict for score
+    score = {}
+    for usern in proofread.keys():
+        score[usern] = {}
+        score[usern]["proofread"] = 0
+        score[usern]["validate"] = 0
+
+    for usern in validate.keys():
+        if usern not in score:
+            score[usern] = {}
+            score[usern]["proofread"] = 0
+            score[usern]["validate"] = 0
+
+    # Fill the score
+    for u in proofread:
+        score[u]["proofread"] = len(proofread[u])
+
+    for u in validate:
+        score[u]["validate"] = len(validate[u])
+
+    # Hardcore points, should replace with custom points
+    point = {
+        "p": 3,
+        "v": 1
+    }
+
     return render_template(
         "contest.html", data=contest, proofread=proofread,
-        validate=validate, lastUpdate=lastUpdate)
+        validate=validate, lastUpdate=lastUpdate, score=score,
+        point=point)
 
 
 @app.route('/contest/<int:id>/edit', methods=["GET", "POST"])

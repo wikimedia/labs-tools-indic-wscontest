@@ -157,4 +157,30 @@
         </tbody>
     </table>
 
+    <br>
+    <h5>Points table</h5>
+    <div>
+        <small>Proofread: <b>{{point["p"]}}</b> Points</small>
+        <small>Validate: <b>{{point["v"]}}</b> Points</small>
+    </div>
+    <table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">User</th>
+        <th scope="col">Proofread</th>
+        <th scope="col">Validate</th>
+        <th scope="col">Total Points</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in score %}
+        <tr>
+            <td>{{ i }}</td>
+            <td>{{ score[i]["proofread"] }}</td>
+            <td>{{ score[i]["validate"] }}</td>
+            <td>{{ score[i]["proofread"]*point["p"] + score[i]["validate"]*point["v"] }}</td>
+        </tr>
+    {% endfor%}
+    </tbody>
+    </table>
 {% endblock %}
