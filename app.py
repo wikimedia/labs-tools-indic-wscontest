@@ -157,10 +157,11 @@ def contest_by_id(id):
         "v": 1
     }
 
+    wikitable = get_wikitable(score, point, lastUpdate)
     return render_template(
         "contest.html", data=contest, proofread=proofread,
         validate=validate, lastUpdate=lastUpdate, score=score,
-        point=point)
+        point=point, wikitable=wikitable)
 
 
 @app.route('/contest/<int:id>/edit', methods=["GET", "POST"])
@@ -269,6 +270,29 @@ def force_https():
             'https://' + request.headers['Host'] + request.headers['X-Original-URI'],
             code=301
         )
+
+
+def get_wikitable(score, point, lastUpdate):
+    wikitable = "Statistics on " + lastUpdate
+    wikitable += """
+{| class="wikitable sortable"
+|-
+! User
+! Proofread
+! Validate
+! Total Points"""
+    for user in score:
+        wikitable += """\n|-
+|%s || %d || %d || %d """ % (
+            user,
+            score[user]['proofread'],
+            score[user]['validate'],
+            (score[user]["proofread"]*point["p"]) + (score[user]["validate"]*point["v"])
+        )
+
+    wikitable += "\n|}"
+
+    return wikitable
 
 
 def get_current_user(cached=True):

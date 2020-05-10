@@ -20,6 +20,11 @@
                 lengthChange: false,
                 bInfo : false
             });
+
+            $("#wikitableBtn").on('click', function(){
+                $('#wikitableDiv').toggle();
+                window.scrollBy(0, 300);
+            })
         });
     </script>
     <style>
@@ -192,4 +197,9 @@
     {% endfor%}
     </tbody>
     </table>
+    <br>
+    <button id="wikitableBtn" class="btn btn-warning">Show/Hide wikitable</button>
+    <div id="wikitableDiv" style="display: none">
+        <textarea rows="20" style="min-width: 100%">{{ wikitable }}</textarea>
+    </div>
 {% endblock %}
