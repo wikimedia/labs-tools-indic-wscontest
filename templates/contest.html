@@ -5,6 +5,8 @@
     <link rel="stylesheet"
               href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.min.css">
     <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-table/1.16.0/bootstrap-table.min.css">
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-table/1.16.0/bootstrap-table.min.js"></script>
 
     <script>
         $( document ).ready( function(){
@@ -163,19 +165,26 @@
         <small>Proofread: <b>{{point["p"]}}</b> Points</small>
         <small>Validate: <b>{{point["v"]}}</b> Points</small>
     </div>
-    <table class="table table-hover">
+    <table class="table table-hover"
+        data-toggle="table"
+        data-sort-name="points"
+        data-sort-order="desc"
+        data-sortable="true"
+    >
     <thead>
         <tr>
-        <th scope="col">User</th>
-        <th scope="col">Proofread</th>
-        <th scope="col">Validate</th>
-        <th scope="col">Total Points</th>
+        <th scope="col" data-sortable="true">User</th>
+        <th scope="col" data-sortable="true">Proofread</th>
+        <th scope="col" data-sortable="true">Validate</th>
+        <th scope="col" data-field="points" data-sortable="true">Total Points</th>
         </tr>
     </thead>
     <tbody>
     {% for i in score %}
         <tr>
-            <td>{{ i }}</td>
+            <td>
+                <a href="https://{{data["project"]}}.wikisource.org/wiki/User:{{ i }}">{{ i }} </a>
+            </td>
             <td>{{ score[i]["proofread"] }}</td>
             <td>{{ score[i]["validate"] }}</td>
             <td>{{ score[i]["proofread"]*point["p"] + score[i]["validate"]*point["v"] }}</td>
