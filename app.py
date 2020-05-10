@@ -157,7 +157,7 @@ def contest_by_id(id):
         "v": 1
     }
 
-    wikitable = get_wikitable(score, point, lastUpdate)
+    wikitable = get_wikitable(score, point, lastUpdate, contest)
     return render_template(
         "contest.html", data=contest, proofread=proofread,
         validate=validate, lastUpdate=lastUpdate, score=score,
@@ -272,7 +272,11 @@ def force_https():
         )
 
 
-def get_wikitable(score, point, lastUpdate):
+def get_wikitable(score, point, lastUpdate, contest):
+    totalPoints = 0
+    totalPR = 0
+    totalVD = 0
+
     wikitable = "Statistics on " + lastUpdate
     wikitable += """
 {| class="wikitable sortable"
@@ -282,15 +286,26 @@ def get_wikitable(score, point, lastUpdate):
 ! Validate
 ! Total Points"""
     for user in score:
+        u_pts = (score[user]["proofread"]*point["p"])+(score[user]["validate"]*point["v"])
+        totalPoints += u_pts
+        totalPR += score[user]['proofread']
+        totalVD += score[user]['validate']
+
         wikitable += """\n|-
 |%s || %d || %d || %d """ % (
             user,
             score[user]['proofread'],
             score[user]['validate'],
-            (score[user]["proofread"]*point["p"]) + (score[user]["validate"]*point["v"])
+            u_pts
         )
 
-    wikitable += "\n|}"
+    wikitable += "\n|}\n\n"
+
+    wikitable += """{| class="wikitable"
+! <br> !! Index page !! Participant !! Proofread !! Validations !! Points
+|-
+| Total || %d || %d || %d || %d || %d
+|}""" % (len(contest["index"]), len(score.keys()), totalPR, totalVD, totalPoints)
 
     return wikitable
 
