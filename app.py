@@ -341,5 +341,11 @@ def _str(val):
             return str(val, 'ascii')
 
 
+@app.template_filter('dateformat')
+def timectime(s):
+    d = datetime.strptime(s, '%d-%m-%Y, %H:%M')
+    return datetime.timestamp(d)
+
+
 if __name__ == '__main__':
     app.run()

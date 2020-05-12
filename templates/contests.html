@@ -1,18 +1,41 @@
 {% extends "base.html" %}
 
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-table/1.16.0/bootstrap-table.min.css">
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-table/1.16.0/bootstrap-table.min.js"></script>
+    <script>
+        function sort(a,b){
+            aa = a.split('>')[1].replace('</span', '')
+            bb = b.split('>')[1].replace('</span', '')
+            return aa - bb
+        }
+    </script>
+{% endblock %}
+
 {% block main %}
     <h2>Contest List</h2>
     {% if logged %}
         <a class="float-right btn btn-info" href="{{ url_for('create_contest') }}"> Create contest</a>
     {% endif %}
     <p>Total Contest:- {{ data["number_of_con"] }} </p>
-    <table class="table table-hover">
+    <table
+        class="table table-hover"
+        data-toggle="table"
+        data-search="true"
+        data-sort-name="createdon"
+        data-sort-order="desc"
+        data-sortable="true"
+        data-show-fullscreen="true"
+        data-show-toggle="true"
+    >
     <thead>
         <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Project</th>
+            <th scope="col" data-sortable="true">Name</th>
+            <th scope="col" data-sortable="true">Project</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
+            <th scope="col" data-sortable="true" data-field="createdon" data-sorter="sort">Created on</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +50,7 @@
                     <td>{{data[contest]["project"]}}</td>
                     <td>{{data[contest]["start_date"]}} UTC</td>
                     <td>{{data[contest]["end_date"]}} UTC</td>
+                    <td><span style="display: none;">{{data[contest]["createdon"]|dateformat }}</span>&nbsp;{{ data[contest]["createdon"] }} UTC</td>
                 </tr>
             {% endif %}
         {% endfor %}
