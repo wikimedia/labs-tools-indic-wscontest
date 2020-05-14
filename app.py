@@ -117,7 +117,7 @@ def contest_by_id(id):
 
                 if stats[indexPage][page]["validate"] is not None:
                     user = stats[indexPage][page]["validate"]["user"]
-                    timestamp = stats[indexPage][page]["proofread"]["timestamp"]
+                    timestamp = stats[indexPage][page]["validate"]["timestamp"]
 
                     # Create Date Object for easy comparison
                     d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
