@@ -48,6 +48,7 @@ def create_contest():
         con["end_date"] = req["end_date"]
         con["createdon"] = datetime.utcnow().strftime("%d-%m-%Y, %H:%M")
         con["createdby"] = get_current_user()
+        con["status"] = True
 
         # Split into list
         con["index"] = req.get("index_pages").split('\r\n')
@@ -185,6 +186,11 @@ def edit_contest(id):
         contest[str(id)]["project"] = req["c_project"]
         contest[str(id)]["start_date"] = req["start_date"]
         contest[str(id)]["end_date"] = req["end_date"]
+
+        if 'c_status' in req:
+            contest[str(id)]["status"] = True
+        else:
+            contest[str(id)]["status"] = False
 
         # Split into list
         contest[str(id)]["index"] = req.get("index_pages").split('\r\n')

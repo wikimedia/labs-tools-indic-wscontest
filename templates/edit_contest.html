@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="//tools-static.wmflabs.org/cdnjs/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script type="text/javascript" src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#start_date').datetimepicker({
@@ -80,6 +84,12 @@
                   <textarea class="form-control" rows="10" id="c_admin" name="c_admin">{{ data["admin"]|join('\n') }}</textarea><p class="span-help">One wiki username per line.</p>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="c_status">Contest running status:</label>
+                <br>
+                <input id="c_status" name="c_status" type="checkbox" {{ 'checked' if data["status"] else '' }} data-toggle="toggle" data-size="small">
+            </div>
+            <br>
             <button class="btn btn-primary" type="submit">Save</button>
         </form>
         <br>

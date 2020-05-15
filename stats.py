@@ -8,7 +8,7 @@ with open("contest_data/contests.json", 'r', encoding="utf-8") as file:
     contests = json.load(file)
 
 for k, v in contests.items():
-    if k == "number_of_con":
+    if (k == "number_of_con") or (v["status"] is False):
         continue
     else:
         con = {}
