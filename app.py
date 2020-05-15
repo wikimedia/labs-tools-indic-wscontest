@@ -299,7 +299,7 @@ def get_wikitable(score, point, lastUpdate, contest):
 
         wikitable += """\n|-
 |%s || %d || %d || %d """ % (
-            user,
+            "[[s:"+contest["project"]+":User:"+user+"|"+user+"]]",
             score[user]['proofread'],
             score[user]['validate'],
             u_pts
