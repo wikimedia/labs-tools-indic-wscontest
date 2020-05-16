@@ -189,6 +189,14 @@ def edit_contest(id):
 
         if 'c_status' in req:
             contest[str(id)]["status"] = True
+
+            # Change update status
+            with open("contest_data/stats/"+str(id)+".json", 'r+', encoding="utf8") as file:
+                c_details = json.load(file)
+                c_details["LastUpdate"] = "Contest Updated, Stats will generate soon."
+                file.seek(0)
+                json.dump(c_details, file, indent=4, ensure_ascii=False)
+                file.truncate()
         else:
             contest[str(id)]["status"] = False
 
@@ -199,14 +207,6 @@ def edit_contest(id):
         # Rewrite contests.json with edit contest
         with open("contest_data/contests.json", 'w', encoding="utf8") as file:
             json.dump(contest, file, indent=4, ensure_ascii=False)
-
-        # Change update status
-        with open("contest_data/stats/"+str(id)+".json", 'r+', encoding="utf8") as file:
-            c_details = json.load(file)
-            c_details["LastUpdate"] = "Contest Updated, Stats will generate soon."
-            file.seek(0)
-            json.dump(c_details, file, indent=4, ensure_ascii=False)
-            file.truncate()
 
         return redirect(url_for('contest_by_id', id=id))
 
