@@ -4,7 +4,7 @@ import os
 import json
 import mwoauth
 from datetime import datetime
-from utils import get_contest_details, get_score, get_wikitable
+from utils import get_contest_details, get_score, get_wikitable, _str
 
 # Create the app
 app = Flask(__name__)
@@ -233,22 +233,6 @@ def get_current_user(cached=True):
     session['mwoauth_useremail'] = identity['email']
 
     return session['mwoauth_username']
-
-
-def _str(val):
-    """
-    Ensures that the val is the default str() type for python2 or 3
-    """
-    if str == bytes:
-        if isinstance(val, str):
-            return val
-        else:
-            return str(val)
-    else:
-        if isinstance(val, str):
-            return val
-        else:
-            return str(val, 'ascii')
 
 
 @app.template_filter('dateformat')
