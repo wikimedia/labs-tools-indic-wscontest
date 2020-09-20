@@ -70,3 +70,41 @@ def get_score(proofread, validate):
     for u in validate:
         score[u]["validate"] = len(validate[u])
     return score
+
+
+def get_wikitable(score, point, lastUpdate, contest):
+    totalPoints = 0
+    totalPR = 0
+    totalVD = 0
+
+    wikitable = "Statistics on " + lastUpdate
+    wikitable += """
+{| class="wikitable sortable"
+|-
+! User
+! Proofread
+! Validate
+! Total Points"""
+    for user in score:
+        u_pts = (score[user]["proofread"] * point["p"]) + (score[user]["validate"] * point["v"])
+        totalPoints += u_pts
+        totalPR += score[user]['proofread']
+        totalVD += score[user]['validate']
+
+        wikitable += """\n|-
+|%s || %d || %d || %d """ % (
+            "[[s:" + contest["project"] + ":User:" + user + "|" + user + "]]",
+            score[user]['proofread'],
+            score[user]['validate'],
+            u_pts
+        )
+
+    wikitable += "\n|}\n\n"
+
+    wikitable += """{| class="wikitable"
+! <br> !! Index page !! Participant !! Proofread !! Validations !! Points
+|-
+| Total || %d || %d || %d || %d || %d
+|}""" % (len(contest["index"]), len(score.keys()), totalPR, totalVD, totalPoints)
+
+    return wikitable
