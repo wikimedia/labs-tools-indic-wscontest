@@ -47,3 +47,26 @@ def get_contest_details(id, contest):
         pass
 
     return proofread, validate, lastUpdate
+
+
+def get_score(proofread, validate):
+    # Create empty dict for score
+    score = {}
+    for usern in proofread.keys():
+        score[usern] = {}
+        score[usern]["proofread"] = 0
+        score[usern]["validate"] = 0
+
+    for usern in validate.keys():
+        if usern not in score:
+            score[usern] = {}
+            score[usern]["proofread"] = 0
+            score[usern]["validate"] = 0
+
+    # Fill the score
+    for u in proofread:
+        score[u]["proofread"] = len(proofread[u])
+
+    for u in validate:
+        score[u]["validate"] = len(validate[u])
+    return score

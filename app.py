@@ -4,7 +4,7 @@ import os
 import json
 import mwoauth
 from datetime import datetime
-from utils import get_contest_details
+from utils import get_contest_details, get_score
 
 # Create the app
 app = Flask(__name__)
@@ -92,25 +92,7 @@ def contest_by_id(id):
 
     proofread, validate, lastUpdate = get_contest_details(id, contest)
 
-    # Create empty dict for score
-    score = {}
-    for usern in proofread.keys():
-        score[usern] = {}
-        score[usern]["proofread"] = 0
-        score[usern]["validate"] = 0
-
-    for usern in validate.keys():
-        if usern not in score:
-            score[usern] = {}
-            score[usern]["proofread"] = 0
-            score[usern]["validate"] = 0
-
-    # Fill the score
-    for u in proofread:
-        score[u]["proofread"] = len(proofread[u])
-
-    for u in validate:
-        score[u]["validate"] = len(validate[u])
+    score = get_score(proofread, validate)
 
     # Hardcore points, should replace with custom points
     point = {
