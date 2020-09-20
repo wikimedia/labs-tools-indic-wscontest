@@ -39,6 +39,7 @@
     <hr>
     {% if logged and username in data["admin"] %}
         <form action="{{ request.url }}" method="POST">
+            <h3>Basic info</h3>
             <div class="form-group">
                 <label for="c_name">Contest Name</label>
                 <input class="form-control" name="c_name" type="text" minlength="4" value="{{ data["name"] }}" maxlength="80" required>
@@ -82,6 +83,32 @@
                 <div class="form-group col-sm-6">
                   <label for="c_admin">Admins:</label>
                   <textarea class="form-control" rows="10" id="c_admin" name="c_admin">{{ data["admin"]|join('\n') }}</textarea><p class="span-help">One wiki username per line.</p>
+                </div>
+            </div>
+            <h3>Scoring system</h3>
+            <br/>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label>Action taken</label>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label>Points</label>
+                </div>
+                <div class="form-group col-sm-6">
+                    <p>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Wikisource_proofread_yellow.svg/25px-Wikisource_proofread_yellow.svg.png"> From any status to Proofread
+                    </p>
+                </div>
+                <div class="form-group col-sm-6">
+                    <input class="form-control" name="p_proofread" type="number" min="0" max="100" value="{{ data["p_points"] }}" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <p>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Wikisource_proofread_green_circle.svg/25px-Wikisource_proofread_green_circle.svg.png"> From Proofread to Validate
+                    </p>
+                </div>
+                <div class="form-group col-sm-6">
+                    <input class="form-control" name="p_validate" type="number" min="0" max="100" value="{{ data["v_points"] }}" required>
                 </div>
             </div>
             <div class="form-group">

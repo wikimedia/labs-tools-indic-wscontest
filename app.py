@@ -47,6 +47,8 @@ def create_contest():
         con["project"] = req["c_project"]
         con["start_date"] = req["start_date"]
         con["end_date"] = req["end_date"]
+        con["p_points"] = req["p_proofread"]
+        con["v_points"] = req["p_validate"]
         con["createdon"] = datetime.utcnow().strftime("%d-%m-%Y, %H:%M")
         con["createdby"] = get_current_user()
         con["status"] = True
@@ -94,10 +96,9 @@ def contest_by_id(id):
 
     score = get_score(proofread, validate)
 
-    # Hardcore points, should replace with custom points
     point = {
-        "p": 3,
-        "v": 1
+        "p": int(contest["p_points"]),
+        "v": int(contest["v_points"])
     }
 
     wikitable = get_wikitable(score, point, lastUpdate, contest)
@@ -128,6 +129,8 @@ def edit_contest(id):
         contest[str(id)]["project"] = req["c_project"]
         contest[str(id)]["start_date"] = req["start_date"]
         contest[str(id)]["end_date"] = req["end_date"]
+        contest[str(id)]["p_points"] = req["p_proofread"]
+        contest[str(id)]["v_points"] = req["p_validate"]
 
         if 'c_status' in req:
             contest[str(id)]["status"] = True
