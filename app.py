@@ -4,6 +4,7 @@ import os
 import json
 import mwoauth
 from datetime import datetime
+from utils import get_contest_details
 
 # Create the app
 app = Flask(__name__)
@@ -89,48 +90,7 @@ def contest_by_id(id):
     if contest is None:
         abort(404)
 
-    proofread = {}
-    validate = {}
-    lastUpdate = ""
-
-    try:
-        with open("contest_data/stats/"+str(id)+".json", encoding="utf8") as file:
-            stats = json.load(file)
-
-        for indexPage in stats:
-            if indexPage == "LastUpdate":
-                lastUpdate = stats["LastUpdate"]
-                continue
-            for page in stats[indexPage]:
-                if stats[indexPage][page]["proofread"] is not None:
-                    user = stats[indexPage][page]["proofread"]["user"]
-                    timestamp = stats[indexPage][page]["proofread"]["timestamp"]
-
-                    # Create Date Object for easy comparison
-                    d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
-                    d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
-                    d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
-
-                    if user not in proofread and (d1_obj < d3_obj < d2_obj):
-                        proofread[user] = [page]
-                    elif (d1_obj < d3_obj < d2_obj):
-                        proofread[user].append(page)
-
-                if stats[indexPage][page]["validate"] is not None:
-                    user = stats[indexPage][page]["validate"]["user"]
-                    timestamp = stats[indexPage][page]["validate"]["timestamp"]
-
-                    # Create Date Object for easy comparison
-                    d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
-                    d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
-                    d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
-
-                    if user not in validate and (d1_obj < d3_obj < d2_obj):
-                        validate[user] = [page]
-                    elif (d1_obj < d3_obj < d2_obj):
-                        validate[user].append(page)
-    except KeyError:
-        pass
+    proofread, validate, lastUpdate = get_contest_details(id, contest)
 
     # Create empty dict for score
     score = {}
@@ -191,7 +151,7 @@ def edit_contest(id):
             contest[str(id)]["status"] = True
 
             # Change update status
-            with open("contest_data/stats/"+str(id)+".json", 'r+', encoding="utf8") as file:
+            with open("contest_data/stats/" + str(id) + ".json", 'r+', encoding="utf8") as file:
                 c_details = json.load(file)
                 c_details["LastUpdate"] = "Contest Updated, Stats will generate soon."
                 file.seek(0)
@@ -292,14 +252,14 @@ def get_wikitable(score, point, lastUpdate, contest):
 ! Validate
 ! Total Points"""
     for user in score:
-        u_pts = (score[user]["proofread"]*point["p"])+(score[user]["validate"]*point["v"])
+        u_pts = (score[user]["proofread"] * point["p"]) + (score[user]["validate"] * point["v"])
         totalPoints += u_pts
         totalPR += score[user]['proofread']
         totalVD += score[user]['validate']
 
         wikitable += """\n|-
 |%s || %d || %d || %d """ % (
-            "[[s:"+contest["project"]+":User:"+user+"|"+user+"]]",
+            "[[s:" + contest["project"] + ":User:" + user + "|" + user + "]]",
             score[user]['proofread'],
             score[user]['validate'],
             u_pts
