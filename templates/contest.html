@@ -100,9 +100,9 @@
     <table class="statsTable table table-hover table-bordered">
         <thead>
             <tr>
-                <th>User</th>
-                <th>Pages</th>
-                <th>No of Pages</th>
+                <th style="width: 35%">User</th>
+                <th style="width: 50%">Pages</th>
+                <th style="width: 15%">No of Pages</th>
             </tr>
         </thead>
         <tbody>
@@ -116,12 +116,26 @@
                 <td>
                     <p class="user-pages"> Show/Hide Pages </p>
                     <div style="display:none;">
-                        {% for page in proofread[users] %}
-                            <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
-                                {{page}}
-                            </a>
-                            <br>
-                        {% endfor %}
+                        <table>
+                            <tr>
+                                <th>Page</th>
+                                <th>Rev ID</th>
+                            </tr>
+                            {% for page in proofread[users] %}
+                                <tr>
+                                    <td>
+                                        <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page["page"]}}">{{page["page"]}}</a>
+                                    </td>
+                                    <td>
+                                        {% if page["rev"] %}
+                                            <a href="https://{{ data["project"] }}.wikisource.org/w/index.php?oldid={{page["rev"]}}&diff=prev"> {{page["rev"]}}
+                                        {% else %}
+                                            n/a
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
                     </div>
                 </td>
                 <td>{{ proofread[users]|length }}</td>
@@ -136,9 +150,9 @@
     <table class="statsTable table table-hover table-bordered">
         <thead>
             <tr>
-                <th>User</th>
-                <th>Pages</th>
-                <th>No of Pages</th>
+                <th style="width: 35%">User</th>
+                <th style="width: 50%">Pages</th>
+                <th style="width: 15%">No of Pages</th>
             </tr>
         </thead>
         <tbody>
@@ -152,12 +166,26 @@
                 <td>
                     <p class="user-pages"> Show/Hide Pages </p>
                     <div style="display:none;">
-                        {% for page in validate[users] %}
-                            <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page}}">
-                                {{page}}
-                            </a>
-                            <br>
-                        {% endfor %}
+                        <table>
+                            <tr>
+                                <th>Page</th>
+                                <th>Rev ID</th>
+                            </tr>
+                            {% for page in validate[users] %}
+                                <tr>
+                                    <td>
+                                        <a href="https://{{ data["project"] }}.wikisource.org/wiki/{{page["page"]}}">{{page["page"]}}</a>
+                                    </td>
+                                    <td>
+                                        {% if page["rev"] %}
+                                            <a href="https://{{ data["project"] }}.wikisource.org/w/index.php?oldid={{page["rev"]}}&diff=prev"> {{page["rev"]}}
+                                        {% else %}
+                                            n/a
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
                     </div>
                 </td>
                 <td>{{ validate[users]|length }}</td>

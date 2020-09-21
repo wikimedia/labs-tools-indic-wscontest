@@ -19,30 +19,34 @@ def get_contest_details(id, contest):
                 if stats[indexPage][page]["proofread"] is not None:
                     user = stats[indexPage][page]["proofread"]["user"]
                     timestamp = stats[indexPage][page]["proofread"]["timestamp"]
+                    rev = stats[indexPage][page]["proofread"].get("revid", None)
 
                     # Create Date Object for easy comparison
                     d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
                     d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
                     d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
 
+                    page_obj = dict(page=page, rev=rev)
                     if user not in proofread and (d1_obj < d3_obj < d2_obj):
-                        proofread[user] = [page]
+                        proofread[user] = [page_obj]
                     elif (d1_obj < d3_obj < d2_obj):
-                        proofread[user].append(page)
+                        proofread[user].append(page_obj)
 
                 if stats[indexPage][page]["validate"] is not None:
                     user = stats[indexPage][page]["validate"]["user"]
                     timestamp = stats[indexPage][page]["validate"]["timestamp"]
+                    rev = stats[indexPage][page]["proofread"].get("revid", None)
 
                     # Create Date Object for easy comparison
                     d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
                     d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
                     d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
 
+                    page_obj = dict(page=page, rev=rev)
                     if user not in validate and (d1_obj < d3_obj < d2_obj):
-                        validate[user] = [page]
+                        validate[user] = [page_obj]
                     elif (d1_obj < d3_obj < d2_obj):
-                        validate[user].append(page)
+                        validate[user].append(page_obj)
     except KeyError:
         pass
 
