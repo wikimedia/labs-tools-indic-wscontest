@@ -156,6 +156,39 @@ def edit_contest(id):
         return redirect(url_for('contest_by_id', id=id))
 
 
+@app.route('/graph', methods=["GET"])
+def graph():
+    projects = request.args.get("c")
+    if projects is not None:
+        projects = projects.split("|")
+        projects_data = {}
+
+        # Open the contests data
+        with open("contest_data/contests.json", encoding="utf8") as file:
+            contests = json.load(file)
+
+        # Iterate project from request
+        for i in projects:
+            projects_data[i] = {}
+            projects_data[i]["proofread"], projects_data[i]["validate"], \
+                projects_data[i]["lastUpdate"] = get_contest_details(i, contests.get(str(i)))
+
+        result = {}
+        for k, v in projects_data.items():
+            result[k] = {}
+            result[k]["project"] = contests[k]["project"]
+            result[k]["index_page"] = len(contests[k]["index"])
+            result[k]["user_profread"] = len(projects_data[k]["proofread"])
+            result[k]["user_validate"] = len(projects_data[k]["validate"])
+
+            # Unique users of proofread and validation
+            total_user = list(projects_data[k]["proofread"].keys()) + list(projects_data[k]["validate"].keys())
+            result[k]["total_user"] = len(set(total_user))
+        return render_template('graph.html', data=result)
+
+    return render_template('graph.html', data=None)
+
+
 @app.route('/login')
 def login():
     redirect_to, request_token = handshaker.initiate()

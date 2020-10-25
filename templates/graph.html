@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='Chart.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='Chart.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='chartjs-plugin-datalabels.js') }}"></script>
+<script>
+	$(function () {
+		// Set data labsels to inside every bar
+		Chart.defaults.global.plugins.datalabels.anchor = 'end';
+		Chart.defaults.global.plugins.datalabels.align = 'end';
+
+		// Get data from backend by jinja2
+		var gData = {{ data | tojson | safe }};
+
+		// Preparing datasets
+		var project = [];
+		var index_page = [];
+		var total_user = [];
+		var user_profread = [];
+		var user_validate = [];
+		for (const con in gData) {
+			project.push(gData[con]["project"]);
+			index_page.push(gData[con]["index_page"]);
+			total_user.push(gData[con]["total_user"]);
+			user_profread.push(gData[con]["user_profread"]);
+			user_validate.push(gData[con]["user_validate"]);
+		}
+
+		// Prepare color for bars
+		var backgroundColor = [];
+		var borderColor = [];
+		for (var i in project) {
+			backgroundColor.push("rgba(50,150,200,0.3)");
+			borderColor.push("rgba(50,150,200,1)");
+		}
+
+		// Function to create graph dynamicly
+		function createBar(element, cData, legend) {
+			var myBarChart = new Chart(element, {
+				type: 'bar',
+				data: {
+					labels: project,
+					datasets: [
+						{
+							data: cData,
+							backgroundColor: backgroundColor,
+							borderColor: borderColor,
+						}
+					]
+				},
+				options: {
+					responsive: true,
+					title: {
+						display: true,
+						position: "top",
+						text: legend,
+					},
+					scales: {
+						yAxes: [{
+							display: true,
+							stacked: true,
+							ticks: {
+								min: 0
+							}
+						}]
+					},
+					legend: {
+						display: false
+					}
+				}
+			});
+		}
+
+		// Creating the graphs
+		createBar($('#cIndex'), index_page, 'Total books');
+		createBar($('#cUser'), total_user, 'Total users participated');
+		createBar($('#cProofreader'), user_profread, 'Total proofreads');
+		createBar($('#cValidator'), user_validate, 'Total validations');
+    });
+</script>
+{% endblock %}
+
+{% block main %}
+{% if data == none %}
+<form>
+	<div class="form-group">
+		<label for="cInput">Contests</label>
+		<input type="text" class="form-control" name="c" aria-describedby="cHelp">
+		<small id="cHelp" class="form-text text-muted">All contests ID sepreated by | eg. 2|3</small>
+	</div>
+	<button type="submit" class="btn btn-primary">Get graph</button>
+</form>
+{% else %}
+<div class="row">
+	<div class="col">
+		<canvas id="cIndex"></canvas>
+	</div>
+	<div class="col">
+		<canvas id="cUser"></canvas>
+	</div>
+</div>
+<br/>
+<div class="row">
+	<div class="col">
+		<canvas id="cProofreader"></canvas>
+	</div>
+	<div class="col">
+		<canvas id="cValidator"></canvas>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
