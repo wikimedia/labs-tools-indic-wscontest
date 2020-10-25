@@ -1,14 +1,11 @@
 {
-    "number_of_con": 23,
     "1": {
         "admin": [
             "Ananth subray"
         ],
-        "end_date": "30-12-2019 08:46",
-        "project": "kn",
         "createdby": "Ananth subray",
-        "start_date": "02-12-2019 08:46",
-        "name": "Alva's college",
+        "createdon": "25-01-2020, 03:26",
+        "end_date": "30-12-2019 08:46",
         "index": [
             "Index:ಮಾಲತಿ.djvu",
             "Index:ಅನ್ನಪೂರ್ಣಾ.pdf",
@@ -19,35 +16,39 @@
             "Index:ನವೋದಯ.pdf",
             "Index:SWAAMI APARAMPAARA.pdf"
         ],
-        "createdon": "25-01-2020, 03:26",
-        "status": true
+        "name": "Alva's college",
+        "project": "kn",
+        "start_date": "02-12-2019 08:46",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "2": {
         "admin": [
             "Jayantanth"
         ],
-        "end_date": "15-07-2019 23:40",
-        "project": "bn",
         "createdby": "Jayantanth",
-        "start_date": "01-05-2019 23:39",
-        "name": "Robimass",
+        "createdon": "28-01-2020, 18:12",
+        "end_date": "15-07-2019 23:40",
         "index": [
             "নির্ঘণ্ট:গল্পগুচ্ছ (প্রথম খণ্ড).djvu",
             "নির্ঘণ্ট:গল্পগুচ্ছ (দ্বিতীয় খণ্ড).djvu"
         ],
-        "createdon": "28-01-2020, 18:12",
-        "status": true
+        "name": "Robimass",
+        "project": "bn",
+        "start_date": "01-05-2019 23:39",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "3": {
         "admin": [
             "Benipal hardarshan",
             "Wikilover90"
         ],
-        "end_date": "29-02-2020 18:29",
-        "project": "pa",
         "createdby": "Benipal hardarshan",
-        "start_date": "30-11-2019 18:30",
-        "name": "Punjabi Wikisource 2020",
+        "createdon": "11-02-2020, 13:55",
+        "end_date": "29-02-2020 18:29",
         "index": [
             "ਇੰਡੈਕਸ:ਪੋਥੀ ਪੰਜ ਗ੍ਰੰਥੀ ਸਟੀਕ.pdf",
             "ਇੰਡੈਕਸ:ਮਹਾਨ ਕੋਸ਼ ਭਾਗ 1.pdf",
@@ -141,19 +142,21 @@
             "ਇੰਡੈਕਸ:ਹਿੰਦ ਬ੍ਰਿਤਾਂਤ ਭਾਗ 2.pdf",
             "ਇੰਡੈਕਸ:ਚਾਰੇ ਕੂਟਾਂ.pdf"
         ],
-        "createdon": "11-02-2020, 13:55",
-        "status": true
+        "name": "Punjabi Wikisource 2020",
+        "project": "pa",
+        "start_date": "30-11-2019 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "4": {
         "admin": [
             "Ananth (CIS-A2K)",
             "Ananth subray"
         ],
-        "name": "Internship program at Alva's college",
-        "end_date": "31-05-2020 18:07",
-        "project": "kn",
-        "start_date": "21-02-2020 18:07",
+        "createdby": "Ananth (CIS-A2K)",
         "createdon": "10-03-2020, 12:45",
+        "end_date": "31-05-2020 18:07",
         "index": [
             "ಪರಿವಿಡಿ:ಯಶೋಧರ ಚರಿತೆ.pdf",
             "ಪರಿವಿಡಿ:ನವೋದಯ.pdf",
@@ -180,18 +183,20 @@
             "ಪರಿವಿಡಿ:ಶಂಕರ_ಕಥಾಸಾರ.djvu",
             "ಪರಿವಿಡಿ:Durga_Puja_Kannada.djvu"
         ],
-        "createdby": "Ananth (CIS-A2K)",
-        "status": true
+        "name": "Internship program at Alva's college",
+        "project": "kn",
+        "start_date": "21-02-2020 18:07",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "5": {
-        "createdby": "Jagseer S Sidhu",
         "admin": [
             "Jagseer S Sidhu"
         ],
-        "project": "pa",
-        "end_date": "31-05-2020 17:18",
+        "createdby": "Jagseer S Sidhu",
         "createdon": "08-04-2020, 14:59",
-        "start_date": "08-04-2020 17:18",
+        "end_date": "30-06-2020 17:18",
         "index": [
             "ਇੰਡੈਕਸ:ਭੂ ਦਾਨ ਚੜਦੀ ਕਲਾ ਵਿੱਚ.pdf",
             "ਇੰਡੈਕਸ:ਢੋਲ ਦਾ ਪੋਲ.pdf‎",
@@ -202,27 +207,38 @@
             "ਇੰਡੈਕਸ:ਚਾਚਾ ਸ਼ਾਮ ਸਿੰਘ.pdf"
         ],
         "name": "SEABA Wiki Contest April 2020",
-        "status": true
+        "project": "pa",
+        "start_date": "08-04-2020 17:18",
+        "status": true,
+        "p_points": 3,
+        "v_points": 3
     },
     "6": {
-        "start_date": "01-05-2020 00:01",
+        "admin": [
+            "Sushant savla"
+        ],
+        "createdby": "Sushant savla",
+        "createdon": "01-05-2020, 02:56",
+        "end_date": "10-05-2020 23:59",
         "index": [
             "સૂચિ:Jayabhikkhu, vyaktitva ane vāṇmaya.pdf",
             "સૂચિ:Rasbindu.pdf",
             "સૂચિ:Mahan Sadhvio.pdf"
         ],
-        "admin": [
-            "Sushant savla"
-        ],
-        "end_date": "10-05-2020 23:59",
-        "createdon": "01-05-2020, 02:56",
         "name": "Indic Wikisource Proofreadthon",
-        "createdby": "Sushant savla",
         "project": "gu",
-        "status": true
+        "start_date": "01-05-2020 00:01",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "7": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "01-05-2020, 08:43",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "সূচী:সীতা-হৰণ_কাব্য.djvu",
             "সূচী:কথা-গীতা.djvu",
@@ -252,18 +268,22 @@
             "সূচী:গদা-পৰ্ব্ব.djvu",
             "সূচী:বাৰাহ-চৰিত্ৰ.djvu"
         ],
-        "admin": [
-            "Jayantanth"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "01-05-2020, 08:43",
         "name": "Indic Wikisource Proofreadthon - Assamese",
-        "createdby": "Jayantanth",
         "project": "as",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "8": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth",
+            "Mahir256",
+            "Jayanta (CIS-A2K)"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "01-05-2020, 15:07",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "নির্ঘণ্ট:গীতাঞ্জলি_-_রবীন্দ্রনাথ_ঠাকুর.djvu",
             "নির্ঘণ্ট:গীতিমাল্য-রবীন্দ্রনাথ_ঠাকুর.djvu",
@@ -273,20 +293,21 @@
             "নির্ঘণ্ট:গোরা-রবীন্দ্রনাথ ঠাকুর.pdf",
             "নির্ঘণ্ট:তীর্থরেণু.djvu"
         ],
-        "admin": [
-            "Jayantanth",
-            "Mahir256",
-            "Jayanta (CIS-A2K)"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "01-05-2020, 15:07",
         "name": "Indic Wikisource Proofreadthon - Bangla",
-        "createdby": "Jayantanth",
         "project": "bn",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "9": {
-        "start_date": "01-05-2020 12:24",
+        "admin": [
+            "Sayant Mahato",
+            "Jayantanth"
+        ],
+        "createdby": "Sayant Mahato",
+        "createdon": "04-05-2020, 06:59",
+        "end_date": "10-05-2020 12:24",
         "index": [
             "अनुक्रमणिका:दिव्यदृष्टिः_(नारायणशास्त्री).pdf",
             "अनुक्रमणिका:बालनीतिकथामाला_(नन्दलाल_१९२१).pdf",
@@ -302,19 +323,20 @@
             "अनुक्रमणिका:सिद्धान्तकौमुदी (बालमनोरमा पूर्व ३-१).djvu",
             "अनुक्रमणिका:सिद्धान्तकौमुदी (बालमनोरमा पूर्व ३-२).djvu"
         ],
-        "admin": [
-            "Sayant Mahato",
-            "Jayantanth"
-        ],
-        "end_date": "10-05-2020 12:24",
-        "createdon": "04-05-2020, 06:59",
         "name": "Indic Wikisource Proofreadthon - Sanskrit",
-        "createdby": "Sayant Mahato",
         "project": "sa",
-        "status": true
+        "start_date": "01-05-2020 12:24",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "10": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "05-05-2020, 14:53",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "নির্ঘণ্ট:গীতাঞ্জলি_-_রবীন্দ্রনাথ_ঠাকুর.djvu",
             "নির্ঘণ্ট:গীতিমাল্য-রবীন্দ্রনাথ_ঠাকুর.djvu",
@@ -324,18 +346,23 @@
             "নির্ঘণ্ট:গোরা-রবীন্দ্রনাথ ঠাকুর.pdf",
             "নির্ঘণ্ট:তীর্থরেণু.djvu"
         ],
-        "admin": [
-            "Jayantanth"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 14:53",
         "name": "Indic Wikisource Proofreadthon-bn",
-        "createdby": "Jayantanth",
         "project": "bn",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "11": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth",
+            "Gitartha.bordoloi",
+            "Jayanta (CIS-A2K)",
+            "Ani ttbr"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "05-05-2020, 17:15",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "সূচী:সীতা-হৰণ_কাব্য.djvu",
             "সূচী:কথা-গীতা.djvu",
@@ -365,38 +392,39 @@
             "সূচী:গদা-পৰ্ব্ব.djvu",
             "সূচী:বাৰাহ-চৰিত্ৰ.djvu"
         ],
-        "admin": [
-            "Jayantanth",
-            "Gitartha.bordoloi",
-            "Jayanta (CIS-A2K)",
-            "Ani ttbr"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 17:15",
         "name": "Indic Wikisource Proofreadthon-As",
-        "createdby": "Jayantanth",
         "project": "as",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "12": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "05-05-2020, 17:24",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "સૂચિ:Jayabhikkhu,_vyaktitva_ane_vāṇmaya.pdf",
             "સૂચિ:Rasbindu.pdf",
             "સૂચિ:Mahan Sadhvio.pdf"
         ],
+        "name": "Indic Wikisource Proofreadthon - Gu",
+        "project": "gu",
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "13": {
         "admin": [
             "Jayantanth"
         ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 17:24",
-        "name": "Indic Wikisource Proofreadthon - Gu",
         "createdby": "Jayantanth",
-        "project": "gu",
-        "status": true
-    },
-    "13": {
-        "start_date": "30-04-2020 18:30",
+        "createdon": "05-05-2020, 17:29",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "ಪರಿವಿಡಿ:Timmana_Tale.djvu",
             "ಪರಿವಿಡಿ:GovinaKatheyaHaadu-T.KeshavaBhat.djvu",
@@ -407,18 +435,23 @@
             "ಪರಿವಿಡಿ:ಕರ್ನಾಟಕ ಕವಿಚರಿತೆ ದ್ವಿತೀಯ ಸಂಪುಟ.djvu",
             "ಪರಿವಿಡಿ:ಭಾರತ ದರ್ಶನ.djvu"
         ],
-        "admin": [
-            "Jayantanth"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 17:29",
         "name": "Indic Wikisource Proofreadthon - Kn",
-        "createdby": "Jayantanth",
         "project": "kn",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "14": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth",
+            "Jayanta (CIS-A2K)",
+            "QueerEcofeminist",
+            "सुबोध कुलकर्णी"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "05-05-2020, 18:53",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "अनुक्रमणिका:मराठी_रंगभुमी.djvu",
             "अनुक्रमणिका:अशोक.pdf",
@@ -438,21 +471,20 @@
             "अनुक्रमणिका:लाट.pdf",
             "अनुक्रमणिका:करुणादेवी.djvu"
         ],
-        "admin": [
-            "Jayantanth",
-            "Jayanta (CIS-A2K)",
-            "QueerEcofeminist",
-            "सुबोध कुलकर्णी"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 18:53",
         "name": "Indic Wikisource Proofreadthon - Mr",
-        "createdby": "Jayantanth",
         "project": "mr",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "15": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "05-05-2020, 19:18",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "ସୂଚୀ:Arkakshetra_konark.pdf",
             "ସୂଚୀ:Bichitra_Ramayana_or_Bisi_Ramalila_(Biswanath_Khuntia).pdf",
@@ -460,18 +492,20 @@
             "ସୂଚୀ:Aama_Parala_Gajapati.pdf",
             "ସୂଚୀ:Kali_kirti_chautisa.pdf"
         ],
+        "name": "Indic Wikisource Proofreadthon - or",
+        "project": "or",
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "16": {
         "admin": [
             "Jayantanth"
         ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 19:18",
-        "name": "Indic Wikisource Proofreadthon - or",
         "createdby": "Jayantanth",
-        "project": "or",
-        "status": true
-    },
-    "16": {
-        "start_date": "30-04-2020 18:30",
+        "createdon": "05-05-2020, 19:25",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "ਇੰਡੈਕਸ:ਦਿਲ_ਖ਼ੁਰਸ਼ੈਦ.pdf",
             "ਇੰਡੈਕਸ:ਕੱਸਾਕ_-_ਲਿਉ_ਤਾਲਸਤਾਏ.pdf",
@@ -482,18 +516,20 @@
             "ਇੰਡੈਕਸ:ਮੋਇਆਂ_ਦੀ_ਜਾਗ_-_ਲਿਉ_ਤਾਲਸਤਾਏ_-_ਪ੍ਰੋ._ਪੂਰਨ_ਸਿੰਘ.pdf",
             "ਇੰਡੈਕਸ:ਨਵੀਆਂ_ਸੋਚਾਂ_-_ਪ੍ਰਿੰਸੀਪਲ_ਤੇਜਾ_ਸਿੰਘ.pdf"
         ],
+        "name": "Indic Wikisource Proofreadthon - Pa",
+        "project": "pa",
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "17": {
         "admin": [
             "Jayantanth"
         ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 19:25",
-        "name": "Indic Wikisource Proofreadthon - Pa",
         "createdby": "Jayantanth",
-        "project": "pa",
-        "status": true
-    },
-    "17": {
-        "start_date": "30-04-2020 18:30",
+        "createdon": "05-05-2020, 19:45",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "अनुक्रमणिका:दिव्यदृष्टिः_(नारायणशास्त्री).pdf",
             "अनुक्रमणिका:बालनीतिकथामाला_(नन्दलाल_१९२१).pdf",
@@ -509,36 +545,40 @@
             "अनुक्रमणिका:सिद्धान्तकौमुदी (बालमनोरमा पूर्व ३-१).djvu",
             "अनुक्रमणिका:सिद्धान्तकौमुदी (बालमनोरमा पूर्व ३-२).djvu"
         ],
+        "name": "Indic Wikisource Proofreadthon - Sa",
+        "project": "sa",
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "18": {
         "admin": [
             "Jayantanth"
         ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 19:45",
-        "name": "Indic Wikisource Proofreadthon - Sa",
         "createdby": "Jayantanth",
-        "project": "sa",
-        "status": true
-    },
-    "18": {
-        "start_date": "30-04-2020 18:30",
+        "createdon": "05-05-2020, 19:49",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "సూచిక:Uttara_Ramayanamu_Kankanti_Paparaju.pdf",
             "సూచిక:Himabindu_by_Adivi_Bapiraju.pdf",
             "సూచిక:Parama_yaugi_vilaasamu_(1928).pdf",
             "సూచిక:Dhanurvidyaa_vilaasamu_(1950).pdf"
         ],
+        "name": "Indic Wikisource Proofreadthon - Te",
+        "project": "te",
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "19": {
         "admin": [
             "Jayantanth"
         ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 19:49",
-        "name": "Indic Wikisource Proofreadthon - Te",
         "createdby": "Jayantanth",
-        "project": "te",
-        "status": true
-    },
-    "19": {
-        "start_date": "30-04-2020 18:30",
+        "createdon": "05-05-2020, 19:51",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "அட்டவணை:சிரிப்பதிகாரம்.pdf",
             "அட்டவணை:தஞ்சைச் சிறுகதைகள்.pdf",
@@ -565,18 +605,20 @@
             "அட்டவணை:மாய வினோதப் பரதேசி-1.pdf",
             "அட்டவணை:மாய வினோதப் பரதேசி-2.pdf"
         ],
+        "name": "Indic Wikisource Proofreadthon - Ta",
+        "project": "ta",
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "20": {
         "admin": [
             "Jayantanth"
         ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "05-05-2020, 19:51",
-        "name": "Indic Wikisource Proofreadthon - Ta",
         "createdby": "Jayantanth",
-        "project": "ta",
-        "status": true
-    },
-    "20": {
-        "start_date": "30-04-2020 18:30",
+        "createdon": "06-05-2020, 05:47",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "अनुक्रमणिका:इचलकरंजी_संस्थांनचा_इतिहास.pdf",
             "अनुक्रमणिका:Yugant.pdf",
@@ -631,18 +673,21 @@
             "अनुक्रमणिका:संमेलनाध्यक्ष बडोदा यांचे भाषण (91 ve Marathi Sahitya Sammelan Speech).pdf",
             "अनुक्रमणिका:श्रीग्रामायन (Shrigramayan).pdf"
         ],
-        "admin": [
-            "Jayantanth"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "06-05-2020, 05:47",
         "name": "Indic Wikisource Proofreadthon - Mr",
-        "createdby": "Jayantanth",
         "project": "mr",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "21": {
-        "start_date": "30-04-2020 18:30",
+        "admin": [
+            "Jayantanth",
+            "Sayant Mahato"
+        ],
+        "createdby": "Jayantanth",
+        "createdon": "06-05-2020, 07:01",
+        "end_date": "10-05-2020 18:30",
         "index": [
             "अनुक्रमणिका:दिव्यदृष्टिः_(नारायणशास्त्री).pdf",
             "अनुक्रमणिका:बालनीतिकथामाला_(नन्दलाल_१९२१).pdf",
@@ -658,19 +703,23 @@
             "अनुक्रमणिका:सिद्धान्तकौमुदी (बालमनोरमा पूर्व ३-१).djvu",
             "अनुक्रमणिका:सिद्धान्तकौमुदी (बालमनोरमा पूर्व ३-२).djvu"
         ],
-        "admin": [
-            "Jayantanth",
-            "Sayant Mahato"
-        ],
-        "end_date": "10-05-2020 18:30",
-        "createdon": "06-05-2020, 07:01",
         "name": "Indic Wikisource Proofreadthon - Sa",
-        "createdby": "Jayantanth",
         "project": "sa",
-        "status": true
+        "start_date": "30-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "22": {
-        "start_date": "08-05-2020 00:01",
+        "admin": [
+            "Bodhisattwa",
+            "Mahir256",
+            "Jayantanth",
+            "Hrishikes"
+        ],
+        "createdby": "Bodhisattwa",
+        "createdon": "07-05-2020, 19:38",
+        "end_date": "07-08-2020 23:59",
         "index": [
             "নির্ঘণ্ট:রোগশয্যায়-রবীন্দ্রনাথ ঠাকুর.djvu",
             "নির্ঘণ্ট:ভগ্নহৃদয় - রবীন্দ্রনাথ ঠাকুর.djvu",
@@ -683,23 +732,36 @@
             "নির্ঘণ্ট:মানসী - রবীন্দ্রনাথ ঠাকুর.djvu",
             "নির্ঘণ্ট:বনবাণী-রবীন্দ্রনাথ ঠাকুর.djvu",
             "নির্ঘণ্ট:সোনার তরী-রবীন্দ্রনাথ ঠাকুর.djvu",
-            "নির্ঘণ্ট:চিত্রা-রবীন্দ্রনাথ ঠাকুর.djvu"
+            "নির্ঘণ্ট:চিত্রা-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:নৈবেদ্য-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:কাহিনী-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:পূরবী-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:মহুয়া-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:পত্রপুট-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:আকাশ-প্রদীপ-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:নবজাতক-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:কথা-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:গীতবিতান.djvu",
+            "নির্ঘণ্ট:প্রবাহিণী-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:শিশু ভোলানাথ-রবীন্দ্রনাথ ঠাকুর.djvu",
+            "নির্ঘণ্ট:কাব্যগ্রন্থ (প্রথম খণ্ড).djvu"
         ],
-        "admin": [
-            "Bodhisattwa",
-            "Mahir256",
-            "Jayantanth",
-            "Hrishikes"
-        ],
-        "end_date": "07-08-2020 23:59",
-        "createdon": "07-05-2020, 19:38",
         "name": "রবিমাস প্রতিযোগিতা ১৪২৭",
-        "createdby": "Bodhisattwa",
         "project": "bn",
-        "status": true
+        "start_date": "08-05-2020 00:01",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
     },
     "23": {
-        "start_date": "20-04-2020 18:30",
+        "admin": [
+            "Benipal hardarshan",
+            "Wikilover90",
+            "Harnoor ghuman"
+        ],
+        "createdby": "Benipal hardarshan",
+        "createdon": "08-05-2020, 13:57",
+        "end_date": "20-06-2020 19:59",
         "index": [
             "ਇੰਡੈਕਸ:ਰਾਜ ਕੁਮਾਰੀ.pdf",
             "ਇੰਡੈਕਸ:ਭਾਰਤ ਕਾ ਗੀਤ.pdf",
@@ -779,17 +841,99 @@
             "ਇੰਡੈਕਸ:ਪੰਜਾਬੀ ਦੀ ਚੌਥੀ ਪੋਥੀ.pdf",
             "ਇੰਡੈਕਸ:ਪੂਰਬ ਅਤੇ ਪੱਛਮ.pdf",
             "ਇੰਡੈਕਸ:ਪ੍ਰਬੋਧ ਚੰਦ੍ਰ ਨਾਟਕ.pdf",
-            "ਇੰਡੈਕਸ:ਨਿਰਾਲੇ ਦਰਸ਼ਨ.pdf"
+            "ਇੰਡੈਕਸ:ਨਿਰਾਲੇ ਦਰਸ਼ਨ.pdf",
+            "ਇੰਡੈਕਸ:ਹਿੰਦ ਬ੍ਰਿਤਾਂਤ ਭਾਗ 2.pdf",
+            "ਇੰਡੈਕਸ:ਗੁਰਮੁਖੀ ਦੀ ਦੂਜੀ ਪੋਥੀ - ਬਾਲਾਂ ਦੀ ਸੁਗਤ.pdf",
+            "ਇੰਡੈਕਸ:ਪੂਰਬੀ ਪੰਜਾਬ ਰਿਆਸਤੀ ਯੂਨੀਅਨ ਦਾ ਬਜਟ ਭਾਸ਼ਣ 1951-52.pdf",
+            "ਇੰਡੈਕਸ:ਰਾਜਾ ਲਾਖਦਾਤਾ ਸਿੰਘ.pdf",
+            "ਇੰਡੈਕਸ:ਪੰਜਾਬੀ ਪੱਤਰ ਕਲਾ.pdf",
+            "ਇੰਡੈਕਸ:ਚਾਰੇ ਕੂਟਾਂ.pdf",
+            "ਇੰਡੈਕਸ:ਜੀਵਨ ਲਹਿਰਾਂ.pdf",
+            "ਇੰਡੈਕਸ:ਪੰਜਾਬੀ ਦੀ ਤੀਜੀ ਪੋਥੀ (ਕੁੜੀਆਂ ਦੀ ਤੀਜੀ ਜਮਾਤ ਲਈ).pdf",
+            "ਇੰਡੈਕਸ:ਤੱਤੀਆਂ ਬਰਫ਼ਾਂ.pdf",
+            "ਇੰਡੈਕਸ:ਜੀਵਨ ਬ੍ਰਿਤਾਂਤ ਨਵਾਬ ਕਪੂਰ ਸਿੰਘ.pdf",
+            "ਇੰਡੈਕਸ:ਵਰ ਤੇ ਸਰਾਪ.pdf",
+            "ਇੰਡੈਕਸ:ਉਪਕਾਰ ਦਰਸ਼ਨ.pdf",
+            "ਇੰਡੈਕਸ:ਪ੍ਰੇਮਸਾਗਰ.pdf",
+            "ਇੰਡੈਕਸ:ਨਵਾਂ ਮਾਸਟਰ.pdf"
         ],
-        "admin": [
-            "Benipal hardarshan",
-            "Wikilover90"
-        ],
-        "end_date": "20-06-2020 19:59",
-        "createdon": "08-05-2020, 13:57",
         "name": "Validation contest - Punjabi Wikisource",
-        "createdby": "Benipal hardarshan",
         "project": "pa",
-        "status": true
-    }
+        "start_date": "20-04-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "24": {
+        "admin": [
+            "Sayant Mahato"
+        ],
+        "createdby": "Sayant Mahato",
+        "createdon": "21-06-2020, 08:02",
+        "end_date": "21-07-2020 13:26",
+        "index": [
+            "अनुक्रमणिका:रघुवंशम् (सञ्जीविनीव्याख्यासमेतम्).djvu",
+            "अनुक्रमणिका:मेघदूतम् (सञ्जीविनीव्याख्यासमेतम्).djvu",
+            "अनुक्रमणिका:ऋतुसंहारम् (चन्द्रिकाव्याख्यासमेतम्).djvu",
+            "अनुक्रमणिका:अभिज्ञानशाकुन्तलम् (सटीका).pdf",
+            "अनुक्रमणिका:मालविकाग्निमित्रम्.djvu",
+            "अनुक्रमणिका:विक्रमोर्वशीयम् (कल्पलताव्याख्यासमेतम्).djvu",
+            "अनुक्रमणिका:कुमारसम्भवम् (निर्णयसागरसंस्करणम्-१९५५).pdf",
+            "अनुक्रमणिका:श्रुतबोधः.djvu",
+            "अनुक्रमणिका:शिशुपालवधम् (मल्लिनाथव्याख्योपेतम्).djvu",
+            "अनुक्रमणिका:गोपालसहस्रनामस्तोत्रम्.pdf",
+            "अनुक्रमणिका:नैषधीयचरितम् (नैषधीयप्रकाशव्याख्यासहितम्).pdf"
+        ],
+        "name": "कालिदासकृतिमासः २०२०",
+        "project": "sa",
+        "start_date": "22-06-2020 16:30",
+        "status": true,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "25": {
+        "admin": [
+            "Bodhisattwa",
+            "Mahir256",
+            "Jayantanth",
+            "Hrishikes"
+        ],
+        "createdby": "Bodhisattwa",
+        "createdon": "26-08-2020, 02:20",
+        "end_date": "26-09-2020 18:30",
+        "index": [
+            "নির্ঘণ্ট:সংস্কৃত ব্যাকরণের উপক্রমণিকা.djvu",
+            "নির্ঘণ্ট:বোধোদয়.djvu",
+            "নির্ঘণ্ট:বহুবিবাহ.pdf",
+            "নির্ঘণ্ট:বিদ্যাসাগর-প্রসঙ্গ.pdf",
+            "নির্ঘণ্ট:জীবনচরিত.djvu",
+            "নির্ঘণ্ট:চরিতাবলী.djvu",
+            "নির্ঘণ্ট:বহুবিবাহ রহিত হওয়া উচিত কি না এতদ্বিষয়ক বিচার - দ্বিতীয় পুস্তক.pdf",
+            "নির্ঘণ্ট:বাঙ্গালার ইতিহাস.djvu",
+            "নির্ঘণ্ট:ভ্রান্তিবিলাস.djvu",
+            "নির্ঘণ্ট:বিদ্যাসাগর জীবনচরিত - শম্ভুচন্দ্র বিদ্যারত্ন.pdf",
+            "নির্ঘণ্ট:বিদ্যাসাগর - প্রচার পুস্তিকা (১৯৫০).pdf",
+            "নির্ঘণ্ট:বিদ্যাসাগর (বিহারীলাল সরকার).pdf",
+            "নির্ঘণ্ট:আখ্যানমঞ্জরী (প্রথম ভাগ) - ঈশ্বরচন্দ্র বিদ্যাসাগর.pdf",
+            "নির্ঘণ্ট:আখ্যানমঞ্জরী (দ্বিতীয় ভাগ) - ঈশ্বরচন্দ্র বিদ্যাসাগর.pdf",
+            "নির্ঘণ্ট:আখ্যানমঞ্জরী (তৃতীয় ভাগ) - ঈশ্বরচন্দ্র বিদ্যাসাগর.pdf",
+            "নির্ঘণ্ট:বিদ্যাসাগর জননী ভগবতী দেবী.pdf",
+            "নির্ঘণ্ট:কথামালা - ঈশ্বরচন্দ্র বিদ্যাসাগর.pdf",
+            "নির্ঘণ্ট:কথামালা - ঈশ্বরচন্দ্র বিদ্যাসাগর (সচিত্র).pdf",
+            "নির্ঘণ্ট:শকুন্তলা (ঈশ্বরচন্দ্র বিদ্যাসাগর).djvu",
+            "নির্ঘণ্ট:বিদ্যাসাগর-প্রবন্ধ - শিবাপ্রসন্ন ভট্টাচার্য.pdf",
+            "নির্ঘণ্ট:বিদ্যাসাগরচরিত - রবীন্দ্রনাথ ঠাকুর.pdf",
+            "নির্ঘণ্ট:পাঠমালা - ঈশ্বরচন্দ্র বিদ্যাসাগর.pdf",
+            "নির্ঘণ্ট:মহাভারত - উপক্রমণিকাভাগ - ঈশ্বরচন্দ্র বিদ্যাসাগর.pdf",
+            "নির্ঘণ্ট:ব্রজবিলাস - ঈশ্বরচন্দ্র বিদ্যাসাগর.pdf",
+            "নির্ঘণ্ট:স্বর্গীয় ঈশ্বরচন্দ্র বিদ্যাসাগর - রজনীকান্ত গুপ্ত.pdf"
+        ],
+        "name": "ঈশ্বরচন্দ্র বিদ্যাসাগর দ্বিশতজন্মবার্ষিকী প্রতিযোগিতা",
+        "project": "bn",
+        "start_date": "25-08-2020 18:30",
+        "status": false,
+        "p_points": 3,
+        "v_points": 3
+    },
+    "number_of_con": 25
 }

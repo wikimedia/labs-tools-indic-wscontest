@@ -82,7 +82,8 @@ def get_wikitable(score, point, lastUpdate, contest):
     totalVD = 0
 
     wikitable = "Statistics on " + lastUpdate + "\n\n"
-    wikitable += "'''Proofread point''': " + contest["p_points"] + " and '''Validate point''':" + contest["v_points"]
+    wikitable += "'''Proofread point''': " + str(contest["p_points"]) + \
+        " and '''Validate point''': " + str(contest["v_points"])
     wikitable += """
 {| class="wikitable sortable"
 |-
