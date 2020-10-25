@@ -12,8 +12,6 @@ class production(config):
     CONSUMER_KEY = ""
     CONSUMER_SECRET = ""
     OAUTH_MWURI = "https://meta.wikimedia.org/w/"
-    SESSION_COOKIE_NAME = 'indic-wscontest'
-    SESSION_COOKIE_PATH = '/indic-wscontest'
     SESSION_COOKIE_SECURE = True
     SESSION_REFRESH_EACH_REQUEST = False
     PREFERRED_URL_SCHEME = 'https'
