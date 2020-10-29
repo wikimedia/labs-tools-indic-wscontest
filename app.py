@@ -4,6 +4,7 @@ import os
 import json
 import mwoauth
 from datetime import datetime
+from pytz import timezone
 from utils import get_contest_details, get_score, get_wikitable, _str
 
 # Create the app
@@ -49,7 +50,7 @@ def create_contest():
         con["end_date"] = req["end_date"]
         con["p_points"] = req["p_proofread"]
         con["v_points"] = req["p_validate"]
-        con["createdon"] = datetime.utcnow().strftime("%d-%m-%Y, %H:%M")
+        con["createdon"] = datetime.now(timezone('Asia/Kolkata')).strftime("%d-%m-%Y, %H:%M")
         con["createdby"] = get_current_user()
         con["status"] = True
 

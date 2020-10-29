@@ -1,5 +1,9 @@
 import json
 from datetime import datetime
+from pytz import timezone
+
+ist_tz = timezone('Asia/Kolkata')
+utc_tz = timezone('UTC')
 
 
 def get_contest_details(id, contest):
@@ -22,9 +26,9 @@ def get_contest_details(id, contest):
                     rev = stats[indexPage][page]["proofread"].get("revid", None)
 
                     # Create Date Object for easy comparison
-                    d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
-                    d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
-                    d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
+                    d1_obj = ist_tz.localize(datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M'))
+                    d2_obj = ist_tz.localize(datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M'))
+                    d3_obj = utc_tz.localize(datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ'))
 
                     page_obj = dict(page=page, rev=rev)
                     if user not in proofread and (d1_obj < d3_obj < d2_obj):
@@ -38,9 +42,9 @@ def get_contest_details(id, contest):
                     rev = stats[indexPage][page]["proofread"].get("revid", None)
 
                     # Create Date Object for easy comparison
-                    d1_obj = datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M')
-                    d2_obj = datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M')
-                    d3_obj = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ')
+                    d1_obj = ist_tz.localize(datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M'))
+                    d2_obj = ist_tz.localize(datetime.strptime(contest["end_date"], '%d-%m-%Y %H:%M'))
+                    d3_obj = utc_tz.localize(datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ'))
 
                     page_obj = dict(page=page, rev=rev)
                     if user not in validate and (d1_obj < d3_obj < d2_obj):
