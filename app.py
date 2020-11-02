@@ -179,8 +179,8 @@ def graph():
             result[k] = {}
             result[k]["project"] = contests[k]["project"]
             result[k]["index_page"] = len(contests[k]["index"])
-            result[k]["user_profread"] = len(projects_data[k]["proofread"])
-            result[k]["user_validate"] = len(projects_data[k]["validate"])
+            result[k]["user_profread"] = sum([len(i) for i in projects_data[k]["proofread"].values()])
+            result[k]["user_validate"] = sum([len(i) for i in projects_data[k]["validate"].values()])
 
             # Unique users of proofread and validation
             total_user = list(projects_data[k]["proofread"].keys()) + list(projects_data[k]["validate"].keys())
