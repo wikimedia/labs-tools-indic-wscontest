@@ -74,10 +74,10 @@
 		}
 
 		// Creating the graphs
-		createBar($('#cIndex'), index_page, 'Total books');
-		createBar($('#cUser'), total_user, 'Total users participated');
-		createBar($('#cProofreader'), user_profread, 'Total proofreads');
-		createBar($('#cValidator'), user_validate, 'Total validations');
+		createBar($('#cIndex'), index_page, 'Total books (' + index_page.reduce((a, b) => a + b, 0) +')');
+		createBar($('#cUser'), total_user, 'Total users participated (' + total_user.reduce((a, b) => a + b, 0) +')');
+		createBar($('#cProofreader'), user_profread, 'Total proofreads (' + user_profread.reduce((a, b) => a + b, 0) +')');
+		createBar($('#cValidator'), user_validate, 'Total validations (' + user_validate.reduce((a, b) => a + b, 0) +')');
     });
 </script>
 {% endblock %}
