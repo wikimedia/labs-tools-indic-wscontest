@@ -39,7 +39,7 @@ def get_contest_details(id, contest):
                 if stats[indexPage][page]["validate"] is not None:
                     user = stats[indexPage][page]["validate"]["user"]
                     timestamp = stats[indexPage][page]["validate"]["timestamp"]
-                    rev = stats[indexPage][page]["proofread"].get("revid", None)
+                    rev = stats[indexPage][page]["validate"].get("revid", None)
 
                     # Create Date Object for easy comparison
                     d1_obj = ist_tz.localize(datetime.strptime(contest["start_date"], '%d-%m-%Y %H:%M'))
