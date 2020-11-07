@@ -102,7 +102,7 @@ def contest_by_id(id):
         "v": int(contest["v_points"])
     }
 
-    wikitable = get_wikitable(score, point, lastUpdate, contest)
+    wikitable = get_wikitable(score, point, lastUpdate, contest, id)
     return render_template(
         "contest.html", data=contest, proofread=proofread,
         validate=validate, lastUpdate=lastUpdate, score=score,

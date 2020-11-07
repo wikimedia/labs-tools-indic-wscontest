@@ -80,12 +80,13 @@ def get_score(proofread, validate):
     return score
 
 
-def get_wikitable(score, point, lastUpdate, contest):
+def get_wikitable(score, point, lastUpdate, contest, id):
     totalPoints = 0
     totalPR = 0
     totalVD = 0
 
-    wikitable = "Statistics on " + lastUpdate + "\n\n"
+    wikitable = "{{Clickable button 2|Statistics on " + lastUpdate + \
+        "|class=mw-ui-progressive|url=https://tools.wmflabs.org/indic-wscontest/contest/" + str(id) + "}}\n\n"
     wikitable += "'''Proofread point''': " + str(contest["p_points"]) + \
         " and '''Validate point''': " + str(contest["v_points"])
     wikitable += """
