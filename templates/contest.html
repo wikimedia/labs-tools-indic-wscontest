@@ -25,6 +25,12 @@
                 $('#wikitableDiv').toggle();
                 window.scrollBy(0, 300);
             })
+
+            $("#wikitableCopy").on('click', function(){
+                var text = $("textarea");
+                text.select();
+                navigator.clipboard.writeText( text.val() );
+            })
         });
     </script>
     <style>
@@ -229,7 +235,10 @@
     </table>
     <br>
     <button id="wikitableBtn" class="btn btn-warning">Show/Hide wikitable</button>
+    <br/>
+    <br/>
     <div id="wikitableDiv" style="display: none">
+        <button id="wikitableCopy" class="btn btn-info btn-sm">Copy table</button>
         <textarea rows="20" style="min-width: 100%">{{ wikitable }}</textarea>
     </div>
 {% endblock %}
