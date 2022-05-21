@@ -1,5 +1,5 @@
 from flask import Flask, request, redirect, render_template, \
-    session, url_for, abort
+    session, url_for, abort, jsonify
 import os
 import json
 import mwoauth
@@ -31,15 +31,12 @@ def index():
 def contest():
     with open("contest_data/contests.json", encoding="utf8") as file:
         contest = json.load(file)
-    return render_template("contests.html", data=contest)
+    return jsonify(contest)
 
 
-@app.route('/contest/create', methods=["GET", "POST"])
+@app.route('/api/contest/create', methods=["POST"])
 def create_contest():
-    if request.method == "GET":
-        return render_template("create_contest.html")
-
-    elif request.method == "POST" and get_current_user() is not None:
+    if get_current_user() is not None:
         con = {}
         number_of_con = 0
         req = request.form
@@ -76,10 +73,13 @@ def create_contest():
         with open("contest_data/stats/" + c_no + ".json", 'w', encoding="utf8") as file:
             json.dump({}, file, indent=4, ensure_ascii=False)
 
-        return redirect(url_for('contest'))
+        return jsonify({
+            "status": "success",
+            "contestno": c_no
+        })
 
 
-@app.route('/contest/<int:id>', methods=["GET"])
+@app.route('/api/contest/<int:id>', methods=["GET"])
 def contest_by_id(id):
     with open("contest_data/contests.json", encoding="utf8") as file:
         contest = json.load(file)
@@ -103,27 +103,20 @@ def contest_by_id(id):
     }
 
     wikitable = get_wikitable(score, point, lastUpdate, contest, id)
-    return render_template(
-        "contest.html", data=contest, proofread=proofread,
-        validate=validate, lastUpdate=lastUpdate, score=score,
-        point=point, wikitable=wikitable)
+    return jsonify({
+        "data": contest,
+        "proofread": proofread,
+        "validate": validate,
+        "lastUpdate": lastUpdate,
+        "score": score,
+        "point": point,
+        "wikitable": wikitable
+    })
 
 
-@app.route('/contest/<int:id>/edit', methods=["GET", "POST"])
+@app.route('/api/contest/<int:id>/edit', methods=["POST"])
 def edit_contest(id):
-    # Opening the contest
-    with open("contest_data/contests.json", encoding="utf8") as file:
-        contest = json.load(file)
-
-    if request.method == "GET":
-        contest = contest.get(str(id))
-
-        # Remove whitespace around the admins
-        contest["admin"] = [i.strip() for i in contest["admin"]]
-
-        return render_template("edit_contest.html", data=contest)
-
-    elif request.method == "POST" and get_current_user() is not None:
+    if get_current_user() is not None:
         req = request.form
 
         contest[str(id)]["name"] = req["c_name"]
@@ -154,10 +147,12 @@ def edit_contest(id):
         with open("contest_data/contests.json", 'w', encoding="utf8") as file:
             json.dump(contest, file, indent=4, ensure_ascii=False)
 
-        return redirect(url_for('contest_by_id', id=id))
+        return jsonify({
+            "status": "success"
+        })
 
 
-@app.route('/graph', methods=["GET"])
+@app.route('/api/graph', methods=["GET"])
 def graph():
     projects = request.args.get("c")
     if projects is not None:
@@ -185,9 +180,11 @@ def graph():
             # Unique users of proofread and validation
             total_user = list(projects_data[k]["proofread"].keys()) + list(projects_data[k]["validate"].keys())
             result[k]["total_user"] = len(set(total_user))
-        return render_template('graph.html', data=result)
+        return jsonify(result)
 
-    return render_template('graph.html', data=None)
+    return jsonify({
+        "error": "Param c id required."
+    }), 400
 
 
 @app.route('/login')
