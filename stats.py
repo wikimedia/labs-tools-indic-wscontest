@@ -12,7 +12,8 @@ for k, v in contests.items():
         continue
     else:
         con = {}
-        ws = WikiSourceApi(v["project"])
+        user_agent = "IndicWikisourceContest/1.1 (https://example.org/IndicWikisourceContest/;) pywikisource/0.0.5"
+        ws = WikiSourceApi(v["project"], user_agent)
         for index in v["index"]:
             try:
                 con[index] = {}
